@@ -24,12 +24,15 @@
 .audience-column li:last-child{margin-bottom:0}
 @media (max-width:1000px){.pressure-grid{grid-template-columns:repeat(2,1fr)}.audience-layout{grid-template-columns:1fr}}
 @media (max-width:640px){.pressure-grid{grid-template-columns:1fr}.pressure-card{min-height:auto}.manifesto-panel{padding:30px 22px}.manifesto-line{font-size:1.08rem;padding:14px 0}}
+
+
 .question-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.1rem;
   margin-top: 1.5rem;
 }
+
 .question-card {
   background: linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%);
   border: 1px solid rgba(16, 32, 60, 0.08);
@@ -38,6 +41,7 @@
   box-shadow: var(--shadow);
   position: relative;
 }
+
 .question-card::before {
   content: "";
   position: absolute;
@@ -46,18 +50,22 @@
   border-radius: 24px;
   pointer-events: none;
 }
+
 .question-card.q1 { --question-accent: #174b88; }
 .question-card.q2 { --question-accent: #6f9f87; }
 .question-card.q3 { --question-accent: #bf8730; }
+
 .question-card.q1 .question-icon-shell { border: 2px solid rgba(23, 75, 136, 0.28); }
 .question-card.q2 .question-icon-shell { border: 2px solid rgba(111, 159, 135, 0.34); }
 .question-card.q3 .question-icon-shell { border: 2px solid rgba(191, 135, 48, 0.34); }
+
 .question-header {
   display: flex;
   align-items: center;
   gap: 0.95rem;
   margin-bottom: 1rem;
 }
+
 .question-icon-shell {
   width: 78px;
   height: 78px;
@@ -69,18 +77,21 @@
   background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(247,249,252,0.98) 100%);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 10px 20px rgba(13, 23, 38, 0.08);
 }
+
 .question-card img {
   width: 52px;
   height: 52px;
   object-fit: contain;
   background: transparent;
 }
+
 .question-card h3 {
   margin: 0;
   color: var(--question-accent, var(--navy));
   font-size: 1.18rem;
   line-height: 1.2;
 }
+
 .question-card p {
   margin: 0;
   color: var(--navy);
@@ -88,9 +99,11 @@
   line-height: 1.58;
   padding-top: 0.15rem;
 }
+
 @media (max-width: 980px) {
   .question-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
 @media (max-width: 720px) {
   .question-grid { grid-template-columns: 1fr; }
   .question-card { padding: 1rem; }
