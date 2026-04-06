@@ -561,3 +561,45 @@ main > section:nth-of-type(even){
     padding: 2px 0;
   }
 }
+
+@media (max-width: 720px){
+  .site-header{
+    position: sticky;
+    top: 0;
+  }
+
+  .header-inner{
+    min-height: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 14px 0 16px;
+  }
+
+  .brand{
+    font-size: 1.08rem;
+    text-align: center;
+    line-height: 1.2;
+    max-width: 240px;
+  }
+
+  .nav{
+    justify-content: center;
+    gap: 14px 22px;
+  }
+
+  .nav a{
+    font-size: 0.95rem;
+    padding: 2px 0;
+  }
+
+  .button-row{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button-row .btn{
+    width: 100%;
+  }
+}
