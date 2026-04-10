@@ -617,3 +617,6 @@ main > section:nth-of-type(even){
 .hebmic-video-actions{
   justify-content: center;
 }
+.hebmic-video-section{
+  background: var(--surface-alt-2) !important;
+}
