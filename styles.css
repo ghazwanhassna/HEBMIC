@@ -620,3 +620,11 @@ main > section:nth-of-type(even){
 .hebmic-video-section{
   background: var(--surface-alt-2) !important;
 }
+
+main > .hebmic-video-section{
+  background: #f3f5f8 !important;
+}
+
+.hebmic-principles-section{
+  padding-bottom: 96px !important;
+}
