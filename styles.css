@@ -589,3 +589,31 @@ main > section.hebmic-video-section{
 .hebmic-video-section .btn{
   width:auto;
 }
+
+
+/* --- FINAL HEBMIC section overrides: video + principles only --- */
+main > section.hebmic-video-section{
+  background: var(--surface-alt-2) !important;
+  padding-top: 64px !important;
+  padding-bottom: 48px !important;
+}
+
+main > section.hebmic-principles-section{
+  background: #ffffff !important;
+  padding-top: 64px !important;
+  padding-bottom: 96px !important;
+}
+
+.hebmic-video-section .button-row{
+  justify-content: center !important;
+  margin-top: 18px !important;
+  margin-bottom: 0 !important;
+}
+
+.hebmic-video-section .btn{
+  width: auto !important;
+}
+
+.hebmic-principles-section .principles-grid{
+  margin-bottom: 0 !important;
+}
