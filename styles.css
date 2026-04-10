@@ -457,6 +457,7 @@ main > section:nth-of-type(even){
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:20px;
   margin-top:28px;
+  margin-bottom:34px;
 }
 .hebmic-principles-section .principle-card{
   background:#fff;
@@ -516,11 +517,13 @@ main > section:nth-of-type(even){
   font-size:1rem;
   line-height:1.58;
 }
+
 @media (max-width:980px){
   .hebmic-principles-section .principles-grid{
     grid-template-columns:repeat(2,minmax(0,1fr));
   }
 }
+
 @media (max-width:720px){
   .hebmic-principles-section .principles-grid{
     grid-template-columns:1fr;
@@ -529,40 +532,8 @@ main > section:nth-of-type(even){
     padding:22px 20px;
   }
 }
-@media (max-width: 720px){
-  .site-header{
-    position: sticky;
-    top: 0;
-  }
 
-  .header-inner{
-    min-height: auto;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    padding: 14px 0 16px;
-  }
-
-  .brand{
-    font-size: 0.95rem;
-    text-align: center;
-    line-height: 1.25;
-    max-width: 220px;
-  }
-
-  .nav{
-    justify-content: center;
-    gap: 14px 22px;
-  }
-
-  .nav a{
-    font-size: 0.95rem;
-    padding: 2px 0;
-  }
-}
-
-@media (max-width: 720px){
+@media (max-width:720px){
   .site-header{
     position: sticky;
     top: 0;
@@ -594,34 +565,27 @@ main > section:nth-of-type(even){
     padding: 2px 0;
   }
 
-  .button-row{
+  .hero .button-row,
+  .page-hero .button-row{
     flex-direction: column;
     align-items: stretch;
   }
 
-  .button-row .btn{
+  .hero .button-row .btn,
+  .page-hero .button-row .btn{
     width: 100%;
   }
 }
 
-
-/* HEBMIC featured video section */
+/* HEBMIC video section */
 main > section.hebmic-video-section{
-  background: #f3f5f8 !important;
-}
-
-.hebmic-video-section .container{
-  max-width: 1160px;
-}
-
-.hebmic-video-section .section-intro{
-  max-width: 780px;
+  background:#f3f5f8 !important;
 }
 
 .hebmic-video-section .button-row{
-  justify-content: center;
+  justify-content:center;
 }
 
-.hebmic-principles-section{
-  padding-bottom: 120px;
+.hebmic-video-section .btn{
+  width:auto;
 }
