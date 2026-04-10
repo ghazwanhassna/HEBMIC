@@ -617,3 +617,34 @@ main > section.hebmic-principles-section{
 .hebmic-principles-section .principles-grid{
   margin-bottom: 0 !important;
 }
+/* HEBMIC principles + video final fixes */
+main > section.hebmic-principles-section{
+  background:#ffffff !important;
+  padding-top:64px !important;
+  padding-bottom:96px !important;
+}
+
+main > section.hebmic-video-section{
+  background:var(--surface-alt-2) !important;
+  padding-top:64px !important;
+  padding-bottom:48px !important;
+}
+
+.hebmic-video-section .section-intro,
+.hebmic-principles-section .section-intro{
+  max-width:100% !important;
+}
+
+.hebmic-video-section .button-row{
+  justify-content:flex-start !important;
+  margin-top:18px !important;
+  margin-bottom:0 !important;
+}
+
+.hebmic-video-section .btn{
+  width:auto !important;
+}
+
+.hebmic-principles-section .principles-grid{
+  margin-bottom:0 !important;
+}
