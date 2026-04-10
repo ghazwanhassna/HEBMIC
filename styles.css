@@ -605,26 +605,23 @@ main > section:nth-of-type(even){
 }
 
 
-/* HEBMIC featured video */
-.hebmic-video-feature{
-  max-width: 920px;
-}
-
-.hebmic-video-section .section-intro{
-  max-width: 820px;
-}
-
-.hebmic-video-actions{
-  justify-content: center;
-}
-.hebmic-video-section{
-  background: var(--surface-alt-2) !important;
-}
-
-main > .hebmic-video-section{
+/* HEBMIC featured video section */
+main > section.hebmic-video-section{
   background: #f3f5f8 !important;
 }
 
+.hebmic-video-section .container{
+  max-width: 1160px;
+}
+
+.hebmic-video-section .section-intro{
+  max-width: 780px;
+}
+
+.hebmic-video-section .button-row{
+  justify-content: center;
+}
+
 .hebmic-principles-section{
-  padding-bottom: 96px !important;
+  padding-bottom: 120px;
 }
