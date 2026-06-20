@@ -56,6 +56,7 @@
               <p class="endorsement-quote">“At a time when higher education leaders are grappling with profound institutional and strategic challenges, <em>Designing the Future University</em> offers a timely and practical contribution. Ghazwan Hassna brings forward a serious framework for thinking about innovation, governance, and institutional transformation. Presidents, provosts, trustees, and senior leaders will find in this work an important resource for engaging the future of higher education.”</p>
               <p class="endorsement-attrib"><strong>John Y. Gotanda</strong><br>President, Hawaiʻi Pacific University</p>
             </div>
+          </article>
           <article class="endorsement-slide">
             <div class="endorsement-panel">
             <p class="endorsement-quote">“Institutions of higher learning are under pressures our predecessors could scarcely imagine. It is not merely the amplitude of change that is challenging higher education today, but the speed and consistency of the change is forcing us to rethink our approach and in fact, our very notion of what it is to be a university. In <em>Designing the Future University</em>, Dr. Hassna offers leaders throughout higher education an opportunity to reframe the challenges and the solutions before them to steer their institutions with greater confidence and fidelity through these tumultuous times.”</p>
@@ -115,9 +116,7 @@
       </div>
 
       <div class="endorsement-meta">
-        <div class="endorsement-dots" aria-label="Endorsement navigation">
-          <button class="endorsement-dot active" type="button" aria-label="Show endorsement 1"></button><button class="endorsement-dot" type="button" aria-label="Show endorsement 2"></button><button class="endorsement-dot" type="button" aria-label="Show endorsement 3"></button><button class="endorsement-dot" type="button" aria-label="Show endorsement 4"></button><button class="endorsement-dot" type="button" aria-label="Show endorsement 5"></button><button class="endorsement-dot" type="button" aria-label="Show endorsement 6"></button><button class="endorsement-dot" type="button" aria-label="Show endorsement 7"></button><button class="endorsement-dot" type="button" aria-label="Show endorsement 8"></button>
-        </div>
+        <div class="endorsement-dots" aria-label="Endorsement navigation"></div>
       </div>
     </div>
 
@@ -125,23 +124,50 @@
       window.addEventListener('DOMContentLoaded', function () {
         const section = document.getElementById('book-endorsements');
         if (!section) return;
+
         const slides = Array.from(section.querySelectorAll('.endorsement-slide'));
-        const dots = Array.from(section.querySelectorAll('.endorsement-dot'));
+        const dotsContainer = section.querySelector('.endorsement-dots');
         const prev = section.querySelector('.endorsement-prev');
         const next = section.querySelector('.endorsement-next');
+
+        if (!slides.length || !dotsContainer || !prev || !next) return;
+
         let current = 0;
         let timer = null;
         const delay = 5000;
 
+        dotsContainer.innerHTML = '';
+
+        const dots = slides.map(function (_, i) {
+          const dot = document.createElement('button');
+          dot.className = 'endorsement-dot';
+          dot.type = 'button';
+          dot.setAttribute('aria-label', 'Show endorsement ' + (i + 1));
+
+          dot.addEventListener('click', function () {
+            showSlide(i);
+            startAuto();
+          });
+
+          dotsContainer.appendChild(dot);
+          return dot;
+        });
+
         function showSlide(index) {
           current = (index + slides.length) % slides.length;
-          slides.forEach((slide, i) => slide.classList.toggle('active', i === current));
-          dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+
+          slides.forEach(function (slide, i) {
+            slide.classList.toggle('active', i === current);
+          });
+
+          dots.forEach(function (dot, i) {
+            dot.classList.toggle('active', i === current);
+          });
         }
 
         function startAuto() {
           stopAuto();
-          timer = window.setInterval(function() {
+          timer = window.setInterval(function () {
             showSlide(current + 1);
           }, delay);
         }
@@ -153,21 +179,14 @@
           }
         }
 
-        prev.addEventListener('click', function() {
+        prev.addEventListener('click', function () {
           showSlide(current - 1);
           startAuto();
         });
 
-        next.addEventListener('click', function() {
+        next.addEventListener('click', function () {
           showSlide(current + 1);
           startAuto();
-        });
-
-        dots.forEach(function(dot, i) {
-          dot.addEventListener('click', function() {
-            showSlide(i);
-            startAuto();
-          });
         });
 
         section.addEventListener('mouseenter', stopAuto);
