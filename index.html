@@ -162,9 +162,7 @@
       </div>
 
       <div class="endorsement-meta">
-        <div class="endorsement-dots" aria-label="Endorsement navigation">
-          <button class="endorsement-dot active" type="button" aria-label="Show endorsement 1"></button><button class="endorsement-dot" type="button" aria-label="Show endorsement 2"></button><button class="endorsement-dot" type="button" aria-label="Show endorsement 3"></button><button class="endorsement-dot" type="button" aria-label="Show endorsement 4"></button><button class="endorsement-dot" type="button" aria-label="Show endorsement 5"></button><button class="endorsement-dot" type="button" aria-label="Show endorsement 6"></button><button class="endorsement-dot" type="button" aria-label="Show endorsement 7"></button><button class="endorsement-dot" type="button" aria-label="Show endorsement 8"></button>
-        </div>
+        <div class="endorsement-dots" aria-label="Endorsement navigation"></div>
       </div>
     </div>
 
@@ -172,23 +170,50 @@
       window.addEventListener('DOMContentLoaded', function () {
         const section = document.getElementById('endorsements');
         if (!section) return;
+
         const slides = Array.from(section.querySelectorAll('.endorsement-slide'));
-        const dots = Array.from(section.querySelectorAll('.endorsement-dot'));
+        const dotsContainer = section.querySelector('.endorsement-dots');
         const prev = section.querySelector('.endorsement-prev');
         const next = section.querySelector('.endorsement-next');
+
+        if (!slides.length || !dotsContainer || !prev || !next) return;
+
         let current = 0;
         let timer = null;
         const delay = 5000;
 
+        dotsContainer.innerHTML = '';
+
+        const dots = slides.map(function (_, i) {
+          const dot = document.createElement('button');
+          dot.className = 'endorsement-dot';
+          dot.type = 'button';
+          dot.setAttribute('aria-label', 'Show endorsement ' + (i + 1));
+
+          dot.addEventListener('click', function () {
+            showSlide(i);
+            startAuto();
+          });
+
+          dotsContainer.appendChild(dot);
+          return dot;
+        });
+
         function showSlide(index) {
           current = (index + slides.length) % slides.length;
-          slides.forEach((slide, i) => slide.classList.toggle('active', i === current));
-          dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+
+          slides.forEach(function (slide, i) {
+            slide.classList.toggle('active', i === current);
+          });
+
+          dots.forEach(function (dot, i) {
+            dot.classList.toggle('active', i === current);
+          });
         }
 
         function startAuto() {
           stopAuto();
-          timer = window.setInterval(function() {
+          timer = window.setInterval(function () {
             showSlide(current + 1);
           }, delay);
         }
@@ -200,21 +225,14 @@
           }
         }
 
-        prev.addEventListener('click', function() {
+        prev.addEventListener('click', function () {
           showSlide(current - 1);
           startAuto();
         });
 
-        next.addEventListener('click', function() {
+        next.addEventListener('click', function () {
           showSlide(current + 1);
           startAuto();
-        });
-
-        dots.forEach(function(dot, i) {
-          dot.addEventListener('click', function() {
-            showSlide(i);
-            startAuto();
-          });
         });
 
         section.addEventListener('mouseenter', stopAuto);
